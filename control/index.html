@@ -4,12 +4,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="application/javascript" src="modernizr.websocket.js"></script>
+        <script src="/socket.io/socket.io.js" type="text/javascript" charset="utf-8" async defer></script>
         <script type="application/javascript" src="js.js"></script>
     </head>
     <body>
 
-        <div class="loading" id="loading"></div>
-        <img class="logo" src="../img/logo.png" id="logoUtama">
+        <!-- <img class="logo" src="img/logo.png" id="logoUtama"> -->
 
         <div class="container" id="container">
 
@@ -25,17 +25,17 @@
             <!-- input name !-->
             <div class="page" id="page1">
                 <div class="icon"></div>
-                <input type="text" id="inputName" placeholder="your name">
+                <input type="text" id="inputName" placeholder="game code">
                 <button id="btMasuk" class="singleButton">Play</button>
             </div>
 
             <!-- the game controller !-->
             <div class="page" id="page2">
                 <div class="controller" id="controller">
-                    <div class="button" id="btUp"><img src="../img/segitiga.png"></div>
-                    <div class="button" id="btLeft"><img src="../img/segitiga.png"></div>
-                    <div class="button" id="btRight"><img src="../img/segitiga.png"></div>
-                    <div class="button" id="btDown"><img src="../img/segitiga.png"></div>
+                    <div class="button" id="btUp"><img src="img/segitiga.png"></div>
+                    <div class="button" id="btLeft"><img src="img/segitiga.png"></div>
+                    <div class="button" id="btRight"><img src="img/segitiga.png"></div>
+                    <div class="button" id="btDown"><img src="img/segitiga.png"></div>
                 </div>
             </div>
 

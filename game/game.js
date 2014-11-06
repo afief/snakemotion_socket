@@ -961,13 +961,15 @@ var isGameOver = false;
 
 	g.step = function() {
 		if (isGameOver) return;
-		requestAnimationFrame( g.step );
+		// requestAnimationFrame( g.step );
+		window.setTimeout(g.step, 500);
 		g.states[ g.state ].step();
 		g.time.update();
 	};
 
 
 	/*SERVER IO*/
+	var numUser = 0;
 	var socket = io();
 
 	function socketInit() {
@@ -983,11 +985,28 @@ var isGameOver = false;
 			g.currentState()[mv + "On"]();
 		});
 
+		socket.on("new user", function() {
+			numUser++;
+			if (numUser == 1) {
+				mulaiMain();
+			}
+		});
+		socket.on("remove user", function() {
+			numUser--;
+			if (numUser <= 0) {
+				resetMain();
+			}
+		});
+
 		socket.on('disconnect', function(){
+			numUser = 0;
 			kode.innerHTML = "disconnected";
+			resetMain();
 		});
 		socket.on('error', function() {
+			numUser = 0;
 			kode.innerHTML = "error";
+			resetMain();
 		});
 	}
 	socketInit();
@@ -999,13 +1018,19 @@ var isGameOver = false;
 })();
 
 function mulaiMain() {
+	judul.style.display = "none";
+
 	isGameOver = false;
 	g.step();
 }
 function berhentiMain() {
+	judul.style.display = "block";
+
 	isGameOver = true;
 }
 function resetMain() {
+	judul.style.display = "block";
+	
 	berhentiMain();
 	g.setState( 'play' );
 }

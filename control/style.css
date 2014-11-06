@@ -1,13 +1,7 @@
-@font-face
-{
-    font-family: erasLight;
-    src: url(../eras_light_itc.woff);
-}
-
 body {
     background-image: url("../img/bg.png");
     background-size: cover;
-    font-family: erasLight, Arial, cursive;
+    font-family: ariaL, Arial, cursive;
     margin: 0px;
     padding: 0px;
     overflow: auto;
