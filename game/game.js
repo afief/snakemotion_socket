@@ -945,7 +945,7 @@ Game
 ================================================*/
 
 var isGameOver = false;
-(function(){ 'use strict';
+var ___ = function() {
 
 	
 
@@ -1015,7 +1015,8 @@ var isGameOver = false;
 
 
 
-})();
+};
+window.addEventListener('load', ___);
 
 function mulaiMain() {
 	judul.style.display = "none";
