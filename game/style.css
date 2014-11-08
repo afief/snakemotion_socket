@@ -68,6 +68,13 @@ Stage
 .info .judul div {
   text-align: center;
 }
+.info .logo {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 20%;
+  opacity: 0.5;
+}
 
 /*================================================
 
@@ -79,10 +86,10 @@ Tiles
   background: rgba(0, 0, 0, 0.15);
   position: absolute;
   transition-property:
-    background,
-    box-shadow,
-    opacity,
-    transform
+  background,
+  box-shadow,
+  opacity,
+  transform
   ;
   transform: translateZ(0);
   transition-duration: 3000ms;
