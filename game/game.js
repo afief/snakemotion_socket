@@ -945,7 +945,7 @@ Game
 ================================================*/
 
 var isGameOver = false;
-var ___ = function() {
+var ____ = function() {
 
 	
 
@@ -961,8 +961,8 @@ var ___ = function() {
 
 	g.step = function() {
 		if (isGameOver) return;
-		// requestAnimationFrame( g.step );
-		window.setTimeout(g.step, 500);
+		requestAnimationFrame( g.step );
+		//window.setTimeout(g.step, 0);
 		g.states[ g.state ].step();
 		g.time.update();
 	};
@@ -1013,9 +1013,7 @@ var ___ = function() {
 
 	// window.addEventListener( 'load', g.step, false );
 
-
-
-};
+}
 window.addEventListener('load', ___);
 
 function mulaiMain() {
