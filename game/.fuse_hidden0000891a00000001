@@ -1014,7 +1014,7 @@ var ____ = function() {
 	// window.addEventListener( 'load', g.step, false );
 
 }
-window.addEventListener('load', ____);
+window.addEventListener('load', ___);
 
 function mulaiMain() {
 	judul.style.display = "none";
