@@ -800,6 +800,7 @@ Play State
 		this.scoreElem = document.querySelector( '.score' );
 		this.stageElem = document.querySelector( '.stage' );
 		this.infoElem = document.querySelector('#info');
+		this.header = document.querySelector("#header");
 		this.dimLong = 28;
 		this.dimShort = 16;
 		this.padding = 0.25;
@@ -831,13 +832,14 @@ Play State
 	};
 
 	StatePlay.prototype.getDimensions = function() {
-		this.winWidth = window.innerWidth;
-		this.winHeight = window.innerHeight;
+		this.winWidth = document.body.offsetWidth;
+		this.winHeight = document.body.offsetHeight;
 		this.activeWidth = this.winWidth - ( this.winWidth * this.padding );
 		this.activeHeight = this.winHeight - ( this.winHeight * this.padding );
 	};
 
 	StatePlay.prototype.resize = function() {
+
 		var _this = g.currentState();
 
 		_this.getDimensions();
@@ -847,18 +849,19 @@ Play State
 		if( _this.activeWidth > _this.activeHeight / _this.stageRatio ) {
 			_this.stageHeight = _this.activeHeight;
 			_this.stageElem.style.height = _this.stageHeight + 'px';
-			_this.infoElem.style.height = _this.stageHeight + 'px';
+			// _this.infoElem.style.height = _this.stageHeight + 'px';
 
 			_this.stageWidth = Math.floor( _this.stageHeight /_this.stageRatio );
 			_this.stageElem.style.width = _this.stageWidth + 'px';
-			_this.infoElem.style.width = _this.stageWidth + 'px';
+			this.header.style.width = _this.stageWidth + 'px';
 		} else {
 			_this.stageWidth = _this.activeWidth;
 			_this.stageElem.style.width = _this.stageWidth + 'px';
-			_this.infoElem.style.width = _this.stageWidth + 'px';
+			this.header.style.width = _this.stageWidth + 'px';
+
 			_this.stageHeight = Math.floor( _this.stageWidth * _this.stageRatio );
 			_this.stageElem.style.height = _this.stageHeight + 'px';
-			_this.infoElem.style.height = _this.stageHeight + 'px';
+			// _this.infoElem.style.height = _this.stageHeight + 'px';
 		}
 
 		_this.tileWidth = ~~( _this.stageWidth / _this.cols );
