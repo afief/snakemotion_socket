@@ -949,9 +949,10 @@ Game
 
 var isGameOver = false;
 var ____ = function() {
-
+	/* SET URL */
+	document.getElementById('judul-control').innerHTML = "Control From http://" + window.location.host + "/control/";
+	document.getElementById('judul-qrcode').setAttribute('src', 'http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=http://'+ window.location.host + '/control/&qzone=1&margin=0&size=400x400&ecc=L');
 	
-
 	g.config = {
 		title: 'Snakely',
 		debug: window.location.hash == '#debug' ? 1 : 0,
