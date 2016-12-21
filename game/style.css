@@ -3,26 +3,29 @@
 General
 
 ================================================*/
-
 * {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Sketch_Block";
+  src: url(../Sketch_Block.ttf);
+}
+
 html,
 body {
-  background-color: #000;
   height: 100%;
 }
 
 body {
-  background: #222;
-  background: radial-gradient(#333, #111);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   color: #fff;
   font: 100%/1.5 sans-serif;
   overflow: hidden;
+  font-family: "Sketch_Block", Arial;
+  background-color: #fff;
+  background-image: url("../linedpaper.png");
+  min-width: 920px;
+  position: relative;
 }
 
 /*================================================
@@ -31,6 +34,18 @@ Score
 
 ================================================*/
 
+.header {
+  background-color: #111;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px -1px #444;
+  padding: 10px 20px
+}
+.header:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
 .score, .kode {
   color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
@@ -39,10 +54,13 @@ Score
   text-align: center;
   font-weight: bold;
   font-size: 30px;
-  margin-top: -50px;
 }
 .kode {
   text-align: left;
+  float: left;
+}
+.score {
+  float: right;
 }
 
 /*================================================
@@ -52,13 +70,30 @@ Stage
 ================================================*/
 
 .stage, .info {
-  bottom: 0;
-  left: 0;
   margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
+  position: relative;
   z-index: 2;
+}
+.stage {
+  background: #222;
+  background: radial-gradient(#333, #111);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.stage {
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px -1px #444;
+  overflow: hidden;
+}
+.info {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 1000;
+  margin-top: 80px;
 }
 .info h2 {
   font-size: 3em;
@@ -67,6 +102,31 @@ Stage
 }
 .info .judul div {
   text-align: center;
+}
+.info .judul img {
+  max-width: 160px;
+}
+.info .logo {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 20%;
+  opacity: 0.5;
+}
+
+.footer {
+  display: table;
+  margin: 0px auto;
+}
+.footer > a {
+  float: left;
+  padding: 10px;
+}
+.footer img {
+  max-width: 100px;
+}
+.footer:after {
+
 }
 
 /*================================================
@@ -79,10 +139,10 @@ Tiles
   background: rgba(0, 0, 0, 0.15);
   position: absolute;
   transition-property:
-    background,
-    box-shadow,
-    opacity,
-    transform
+  background,
+  box-shadow,
+  opacity,
+  transform
   ;
   transform: translateZ(0);
   transition-duration: 3000ms;
